@@ -11,7 +11,7 @@
   <meta name="author" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-  <link rel="icon" href="assets/images/favicon.png">
+  <link rel="icon" href="assets/images/favicon.ico">
   <link rel='stylesheet' href='assets/css/bootstrap.min.css'>
   <link rel='stylesheet' href='assets/css/vendor.css'>
   <link rel='stylesheet' href='assets/css/theme_black_blue.css'>
@@ -26,6 +26,7 @@
   <!--[if lte IE 9]><!-->
   <script src='assets/js/vendor/html5shiv.min.js'></script>
   <!--<![endif]-->
+  <!--<![endif]-->
   <script src="assets/js/title.js"></script>
   <script src="assets/js/mouse.js"></script>
   <script src="https://apis.google.com/js/platform.js"></script>
@@ -36,8 +37,8 @@
     <div class="site-bg__img"></div>
     <div class="site-bg__video"></div>
     <div class="site-bg__overlay"></div>
-    <div class="site-bg__effect layer" data-depth=".30"></div>
-    <canvas class="site-bg__canvas layer" data-depth=".30"></canvas> 
+    <div class="site-bg__effect layer" data-depth="1"></div>
+    <canvas class="site-bg__canvas layer" data-depth="1"></canvas> 
   </div>
   
   <div class="site-loader">
@@ -54,7 +55,6 @@
             <div class="container-fluid max-width">
               <div class="row">
                 <header class="site-header">    
-                    <h4><span id="doc_time">Time</span></h4>
                 </header>
                 <div class="col-xs-12">
                     <div class="animation-item"
@@ -64,8 +64,8 @@
                     data-animation-out-delay="700">                       
                         <div id="center1">                    
                             <div class="inner">
-                                <h5><span id="doc_time">Victor</span></h5>
-                                <h1 id="section__title"><span class="color">Belka</span></h1>                 
+                                <h5><span id="doc_time">dzr</span></h5>
+							    <h1 id="section__title"><span class="color">Belka</span></h1>                 
                                 <h3 id="wf2" style="background: -webkit-background-clip: text; -webkit-text-fill-color: transparent; -webkit-text-stroke: 1px rgb(255, 0, 255);">
                                     <a id="wf3" target="blank" href="https://vk.com/dzr.belka"><i class="socicon-vkontakte"></i></a>
                                     <span></span>
@@ -73,7 +73,7 @@
                                     <span></span>
                                     <a id="wf5" target="blank" href="https://discord.gg/TsaMjMj"><i class="socicon-discord"></i></a>
 					           </h3> 
-                                 <marquee aligt="center" scrollamount="7" width="540" style="width:335px;"><h5><a href="https://www.twitch.tv/dzrbelka">Twitch stream</a></h5></marquee>     
+                                 <marquee aligt="center" scrollamount="7" width="540" style="width:335px;"><h5><a href="https://www.twitch.tv/dzrbelka">Twitch stream</a></h5></marquee>  
                             </div>	
                         </div>
                         <!--sound-mute button have some bugs now--> 
@@ -98,7 +98,7 @@
         <source src="assets/movies/bg.mp4">
         <script>  
             var video = document.currentScript.parentElement;
-            video.volume = 0.4;
+            video.volume = 0.3;
         </script>
     </video>
 </div>
@@ -110,29 +110,7 @@
   <script src='assets/js/main.js'></script>
 </body>
 <script type="text/javascript">
-function clock() {
-    var d = new Date();
-    var hours = d.getHours();
-    var minutes = d.getMinutes();
-    var seconds = d.getSeconds();
 
-
-    if (hours <= 9) hours = "0" + hours;
-    if (minutes <= 9) minutes = "0" + minutes;
-    if (seconds <= 9) seconds = "0" + seconds;
-
-    date_time = hours + ":" + minutes + ":" + seconds;
-    if (document.layers) {
-        document.layers.doc_time.document.write(date_time);
-        document.layers.doc_time.document.close();
-    }
-    else document.getElementById("doc_time").innerHTML = date_time;
-        setTimeout("clock()", 1000);
-}
-</script>
-
-<script type="text/javascript">
- clock();
 </script>
 
 <script> 
@@ -167,5 +145,34 @@ $(".mute-video").click(function () {
     }
     console.log($("video").prop('muted'))
 });
+<BODY ondragstart="return false" onselectstart="return false">
+	</script>
+	<script language=JavaScript>
+	<!--
+	var message = "А? иди на хуй";
+	///////////////////////////////////
+	function clickIE4() {
+		if(event.button == 2) {
+			alert(message);
+			return false;
+		}
+	}
+
+	function clickNS4(e) {
+		if(document.layers || document.getElementById && !document.all) {
+			if(e.which == 2 || e.which == 3) {
+				alert(message);
+				return false;
+			}
+		}
+	}
+	if(document.layers) {
+		document.captureEvents(Event.MOUSEDOWN);
+		document.onmousedown = clickNS4;
+	} else if(document.all && !document.getElementById) {
+		document.onmousedown = clickIE4;
+	}
+	document.oncontextmenu = new Function("alert(message);return false")
+		// -->
 </script>
 </html>
